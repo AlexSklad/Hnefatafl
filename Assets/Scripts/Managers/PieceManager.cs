@@ -30,7 +30,7 @@ public class PieceManager : MonoBehaviour
     }
     public virtual void Setup (Board board)
     {
-        mDefPiece = CreatePieces(Color.white, 12, board, true);
+        mDefPiece = CreatePieces(Color.white, 13, board, true);
 
         mAttackPiece = CreatePieces(Color.black, 24, board, false);
 
@@ -96,12 +96,12 @@ public class PieceManager : MonoBehaviour
 
 
             string key = "R";
-            //if (isDefTeam)
-            //{
-            //    key = "K";
-            //    _picedSprite = Resources.Load<Sprite>("KingFigure");
-            //    isDefTeam = false;
-            //}
+            if (isDefTeam)
+            {
+                key = "K";
+                _picedSprite = Resources.Load<Sprite>("KingFigure");
+                isDefTeam = false;
+            }
 
             Type pieceType = mPieceLibrary[key];
 
