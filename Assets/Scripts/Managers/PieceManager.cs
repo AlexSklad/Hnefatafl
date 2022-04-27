@@ -30,7 +30,9 @@ public class PieceManager : MonoBehaviour
     }
     public virtual void Setup (Board board)
     {
-        mDefPiece = CreatePieces(Color.white, 13, board, true);
+        mDefPiece = CreatePieces(Color.white, 12, board, true);
+
+        mDefPiece.Add(CreateKing());
 
         mAttackPiece = CreatePieces(Color.black, 24, board, false);
 
@@ -92,22 +94,13 @@ public class PieceManager : MonoBehaviour
 
             newPieceObject.transform.localScale = new Vector3(1, 1, 1);
             newPieceObject.transform.localRotation = Quaternion.identity;
-            //newPieceObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-
 
             string key = "R";
-            if (isDefTeam)
-            {
-                key = "K";
-                _picedSprite = Resources.Load<Sprite>("KingFigure");
-                isDefTeam = false;
-            }
 
             Type pieceType = mPieceLibrary[key];
 
             BasePiece newPiece = (BasePiece)newPieceObject.AddComponent(pieceType);
              
-            if (key == "K") newPiece.mIsKing = true;
             newPieces.Add(newPiece);
 
             newPiece.Setup(teamColor, _picedSprite, this);
@@ -130,6 +123,8 @@ public class PieceManager : MonoBehaviour
         Type pieceType = mPieceLibrary["K"];
 
         BasePiece newKing = (BasePiece)newPieceObject.AddComponent(pieceType);
+
+        newKing.mIsKing = true;
 
         newKing.Setup(Color.white, _picedSprite, this);
 
@@ -175,12 +170,12 @@ public class PieceManager : MonoBehaviour
 
     private void PlaceDefPiece(List<BasePiece> pieces, Board board)
     {
-        pieces[0].Place(board.mAllCells[5, 5], CellOcupState.King);
+        pieces[pieces.Count - 1].Place(board.mAllCells[5, 5], CellOcupState.King);
 
         int c = 5; int r = 3;
 
         int itter = 1;
-        for (int i = 1; i < 13; i++)
+        for (int i = 0; i < 12; i++)
         {
             if (c == 5 & r == 5)
             {

@@ -8,15 +8,10 @@ public class TutorialPM : PieceManager
     public override void Setup(Board board)
     {
         TutorialSetup(Global.TutorialStep, board);
-        //base.Setup(board);
     }
 
     public override void SwitchSide(Color color)
     {
-        //isBlackTurn = color == Color.white ? true : false;
-
-        //SetInteractive(mDefPiece, !isBlackTurn);
-        //SetInteractive(mAttackPiece, isBlackTurn);
     }
 
     private void TutorialSetup(int Step, Board b)
