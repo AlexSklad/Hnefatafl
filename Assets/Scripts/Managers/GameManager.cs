@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -23,11 +24,13 @@ public class GameManager : MonoBehaviour
     public void ResetGame()
 
     {
-        mBoard.KillAllPiece();
-        StopAllCoroutines();
-        StartCoroutine(mBoard.WaitForLoadScenes("GameScene", true));
-        mPieceManager.Setup(mBoard);
-        mBoard.IsKingAlive = true;
+        SceneManager.LoadScene("GameScene");
+
+        //mBoard.KillAllPiece();
+        //StopAllCoroutines();
+        //StartCoroutine(mBoard.WaitForLoadScenes("GameScene", true));
+        //mPieceManager.Setup(mBoard);
+        //mBoard.IsKingAlive = true;
 
     }
 

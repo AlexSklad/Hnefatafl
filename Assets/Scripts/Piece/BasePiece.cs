@@ -53,7 +53,8 @@ public abstract class BasePiece : EventTrigger
     public virtual void Kill()
     {
         mCurrentCell.mCurrentPiece = null;
-        gameObject.SetActive(false);
+        Destroy(gameObject);
+        //gameObject.SetActive(false);
     }
 
     private void UnselectPiece(Board b, BasePiece p)

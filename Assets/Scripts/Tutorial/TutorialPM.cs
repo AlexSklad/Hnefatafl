@@ -28,9 +28,9 @@ public class TutorialPM : PieceManager
                 }
             case 2: 
                 {
-                    base.mDefPiece = CreatePieces(Color.white, 2, b, true);
+                    base.mDefPiece = CreatePieces(Color.white, 1, b, true);
                     base.mAttackPiece = CreatePieces(Color.black, 2, b, false);
-                    base.mDefPiece.RemoveAt(0);
+                    //base.mDefPiece.RemoveAt(0);
 
                     mDefPiece[0].Place(b.mAllCells[2, 3], CellOcupState.Defender);
 
@@ -43,8 +43,8 @@ public class TutorialPM : PieceManager
                 }
             case 3:
                 {
-                    base.mDefPiece = CreatePieces(Color.white, 4, b, true);
-                    base.mDefPiece.RemoveAt(0);
+                    base.mDefPiece = CreatePieces(Color.white, 3, b, true);
+                    //base.mDefPiece.RemoveAt(0);
                     base.mAttackPiece = CreatePieces(Color.black, 4, b, false);
 
                     mDefPiece[0].Place(b.mAllCells[7, 3], CellOcupState.Defender);
